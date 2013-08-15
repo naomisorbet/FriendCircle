@@ -1,0 +1,18 @@
+<h1>New Post</h1>
+
+<form action="<%=user_posts_url(current_user)%>" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%form_authenticity_token%>">
+
+	<label for="post_body">Post:</label>
+	<input type="text" id="post_body" name="post[body]">
+	<br>
+	<br>
+
+	<t>Share with:</t>
+	<% @friend_circles.each do |circle| %>
+	<input type="checkbox" id="post_friend_circle_ids_<%=circle.id%>" 			name="post[friend_circle_ids][]" value="<%circle.id%>">
+	<label for="post_friend_circle_ids_<%=circle.id%>"><%=circle.name%></label>
+	<% end %>
+	<br>
+	<input type="submit" value="Post">
+</form>

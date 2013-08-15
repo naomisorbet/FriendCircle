@@ -1,0 +1,6 @@
+<h1><%= @user.username %></h1>
+<%= button_to "Friend Circles", user_friend_circles_url(@user),
+	 						:method => :get %>
+<%= button_to "Create a New Circle", new_user_friend_circle_url(@user),
+	 						:method => :get %>
+<%= button_to "Log Out", session_url, :method => :delete %>

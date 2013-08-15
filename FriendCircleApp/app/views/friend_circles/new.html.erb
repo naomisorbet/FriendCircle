@@ -1,0 +1,17 @@
+<h1>Create your Friend Circle!</h1>
+
+<form action="<%=user_friend_circles_url(current_user)%>" method="POST">
+	<input type="hidden" name="authenticity_token" 				 				 					value="<%=form_authenticity_token%>">
+
+	<label for="friend_circle_name">Circle Name:</label>
+	<input type="text" id="friend_circle_name" name="friend_circle[name]">
+	<br>
+	<%@users.each do |user|%>
+	<input type="checkbox" id="friend_circle_member_ids_<%=user.id%>" 				  				 name="friend_circle[member_ids][]" value="<%=user.id%>">
+	<label for="friend_circle_member_ids"><%=user.username%></label>
+	<br>
+	<%end%>
+
+	<input type="submit" value="Create">
+
+</form>
